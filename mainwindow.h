@@ -22,10 +22,19 @@ public slots:
 
 private:
 
+    /**
+     * @brief interpretResults transform from enum's value
+     * to text description
+     */
     QString interpretResults(BloodEnums::Result res);
+    /**
+     * @brief updateGender updating class fielf "gender" from
+     *  combobox
+     */
     void updateGender();
+
     Ui::MainWindow *ui;
-    bool isEveryoneNormal = true;
+    //bool isEveryoneNormal = true;
     BloodEnums::Gender gender = BloodEnums::Gender::Male;
 };
 

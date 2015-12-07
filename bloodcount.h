@@ -1,6 +1,8 @@
 #ifndef BLOODCOUNT_H
 #define BLOODCOUNT_H
 
+
+
 namespace BloodEnums{
 
 enum class Gender{
@@ -23,7 +25,9 @@ enum class Result{
 };
 }
 
-
+/**
+ * @brief The BloodCount class
+ */
 class BloodCount{
 public:
     BloodCount()

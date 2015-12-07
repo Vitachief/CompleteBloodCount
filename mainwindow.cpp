@@ -4,17 +4,22 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
+    //Setting data from form to this window
     ui->setupUi(this);
 
+    //Setting scroll to its area
     ui->scrAreaInput->setLayout(ui->layScroll);
 
+    //Setting central layout from form to this window
     ui->centralWidget->setLayout(ui->layCentral);
 
-
+    //Setting layout for scroll's widget
     ui->scrWidget->setLayout(ui->layScroll);
 
+    //Setting widget to scroll
     ui->scrAreaInput->setWidget(ui->scrWidget);
 
+    //Connecting signal from button to slot
     connect(ui->bGetResults, SIGNAL(clicked()),
             SLOT(getResults()));
 }
@@ -25,7 +30,9 @@ MainWindow::~MainWindow(){
 
 void MainWindow::getResults(){
     ui->teResult->clear();
+    //Updating current gender from combobox
     updateGender();
+    //String with answer
     QString answer;
     answer += "Эритроциты: " +
             interpretResults(BloodCount::getRBC(ui->sbRBC->value(), gender))
@@ -90,6 +97,7 @@ void MainWindow::getResults(){
     answer += "СОЭ: " +
             interpretResults(BloodCount::getESR(ui->sbESR->value(),gender))
             + "\n";
+    //Setting text to text edit
     ui->teResult->setText(answer);
 }
 
@@ -125,10 +133,10 @@ QString MainWindow::interpretResults(BloodEnums::Result res){
         return QString("В пределах нормы");
     }break;
     case Result::Increased:{
-        return QString("Ниже нормы");
+        return QString("Выше нормы");
     }break;
     case Result::Decreased:{
-        return QString("Выше нормы");
+        return QString("Ниже нормы");
     }break;
     case Result::Incorrect_Input:{
         return QString("Неверно указаны данные");
