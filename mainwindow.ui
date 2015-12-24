@@ -55,8 +55,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>111</width>
-          <height>208</height>
+          <width>147</width>
+          <height>179</height>
          </rect>
         </property>
        </widget>
@@ -93,6 +93,22 @@
       <widget class="QPushButton" name="bGetResults">
        <property name="text">
         <string>Получить результат</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="bSaveToFile">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>Записать результат в файл</string>
        </property>
       </widget>
      </item>
@@ -145,6 +161,9 @@
       <widget class="QDoubleSpinBox" name="sbHGB">
        <property name="suffix">
         <string> г/л</string>
+       </property>
+       <property name="maximum">
+        <double>1000.990000000000009</double>
        </property>
       </widget>
      </item>

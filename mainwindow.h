@@ -5,6 +5,8 @@
 
 #include "bloodcount.h"
 
+#include <QDoubleSpinBox>
+
 namespace Ui {
 class MainWindow;
 }
@@ -19,6 +21,7 @@ public:
 
 public slots:
     void getResults();
+    void saveToFile();
 
 private:
 
@@ -32,6 +35,9 @@ private:
      *  combobox
      */
     void updateGender();
+    QString makeAddString(bool fl, QDoubleSpinBox* sp);
+
+    QString makeResultString(bool isCurValOn = false);
 
     Ui::MainWindow *ui;
     //bool isEveryoneNormal = true;
